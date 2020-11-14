@@ -1,18 +1,1 @@
-[
-    {
-        "cliente_id": "1",
-        "nome": "duegi",
-        "endereco": "daasdas",
-        "cep": "hiiui",
-        "data_nascimento": "ihih",
-        "telefone": "fftftf"
-    },
-    {
-        "cliente_id": "2",
-        "nome": "sdfsfsfs",
-        "endereco": "tyerytrt",
-        "cep": "kl.iuioç",
-        "data_nascimento": "45353454",
-        "telefone": "retert"
-    }
-]
+[{"id_cliente":"2","nome":"sdddddd","endereco":"tyerytrt","cep":"kl.iuioç","data_nascimento":"45353454","telefone":"retert"},{"id_cliente":"bll9ujq0bvo","nome":"sdfsfsfs","endereco":"tyerytrt","cep":"kl.iuioç","data_nascimento":"4sdasds3454","telefone":"retert"}]

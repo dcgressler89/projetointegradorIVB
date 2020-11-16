@@ -1,1 +1,42 @@
-[{"id_cliente":"2","nome":"sdddddd","endereco":"tyerytrt","cep":"kl.iuioç","data_nascimento":"45353454","telefone":"retert"},{"id_cliente":"bll9ujq0bvo","nome":"sdfsfsfs","endereco":"tyerytrt","cep":"kl.iuioç","data_nascimento":"4sdasds3454","telefone":"retert"}]
+[
+    {
+        "id_cliente": "0fs6c4os8j8",
+        "nome": "Diego",
+        "endereco": "Santa Tecla 555",
+        "cep": "96000-000",
+        "data_nascimento": "10/07/89",
+        "telefone": "53 9855.1999"
+    },
+    {
+        "id_cliente": "k06pn00hatg",
+        "nome": "Carla",
+        "endereco": "Osorio 555",
+        "cep": "96000-150",
+        "data_nascimento": "17/02/84",
+        "telefone": "53 5666.5486"
+    },
+    {
+        "id_cliente": "sckrflgralg",
+        "nome": "Benjamin",
+        "endereco": "Deodoro 665",
+        "cep": "96000-195",
+        "data_nascimento": "01/11/12",
+        "telefone": "53 3569.2355"
+    },
+    {
+        "id_cliente": "ctmdtm5q3kg",
+        "nome": "Joao",
+        "endereco": "Bento 859",
+        "cep": "96000-333",
+        "data_nascimento": "06/10/99",
+        "telefone": "53 3658.4588"
+    },
+    {
+        "id_cliente": "91h5m7njt9",
+        "nome": "Maria",
+        "endereco": "JK de Oliveira 352",
+        "cep": "96000-983",
+        "data_nascimento": "20/04/90",
+        "telefone": "53 2355.6588"
+    }
+]

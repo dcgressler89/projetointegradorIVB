@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <table border="1px">
+        <tr>
+            <td>ID</td>
+            <td>Nome</td>
+            <td>Endereço</td>
+            <td>Cep</td>
+            <td>Data Nascimento</td>
+            <td>Telefone</td>
+        </tr>
+        <%for(var i=0;i<lista.length;i++) {%>
+            <tr>
+                <td><%=lista[i].id_cliente%></td>
+                <td><%=lista[i].nome%></td>
+                <td><%=lista[i].endereco%></td>
+                <td><%=lista[i].cep%></td>
+                <td><%=lista[i].data_nascimento%></td>
+                <td><%=lista[i].telefone%></td>
+            </tr>
+        <%}%>
+    </table>
+    
+</body>
+</html>

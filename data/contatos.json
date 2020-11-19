@@ -38,5 +38,13 @@
         "cep": "96000-983",
         "data_nascimento": "20/04/90",
         "telefone": "53 2355.6588"
+    },
+    {
+        "cliente_id": "bttr68eo8ho",
+        "nome": "Neusa",
+        "endereco": "Quinze 652",
+        "cep": "96000-473",
+        "data_nascimento": "07/08/75",
+        "telefone": "53 2355.9856"
     }
 ]

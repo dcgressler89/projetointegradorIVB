@@ -1,10 +1,21 @@
-// Módulos do node e inicialização de váriaveis
+// Modulo para inicialização do server
 const express = require('express');
 const server = express();
-//server.set('view engine', 'ejs');
+
+// Modulo para usar html
+server.set('view engine', 'ejs');
 const router = express.Router();
+
+// Modulo para leitura e escrita de arquivos
 const fs = require('fs');
 server.use(express.json({extended: true}));
+
+// Modulo para aceitar métodos put e delete no form html
+const methodOverride = require('method-override');
+server.use(methodOverride('_method'));
+
+// Pega os dados do form html
+server.use(express.urlencoded({extended: true}));
 
 // Váriaveis para inicialização do servidor
 const host = 'localhost';
@@ -22,19 +33,21 @@ const writeFile = (content) => {
     fs.writeFileSync('./data/contatos.json', updateFile, 'utf-8');
 }
 
-// Rotas de acesso
-
-// Rota de busca
+// Rotas da API
+// Busca todos os dados
 router.get('/', function(req, res){
     const content = readFile();
-    //console.log(content);
-    res.send(content);
-    // Começo de testes com o modulo ejs
-    //res.render('./index',{ lista : content });
+    // Renderiza a página index com a lista de contatos
+    res.render('./index',{ lista : content });
 });
 
-// Rota de inserção
+// Carrega o formulário de adicionar
 router.post('/', function(req, res){
+    res.render('./form_add');
+});
+
+// Insere o contato ao arquivo
+router.post('/adicionar', function(req, res){
     const currentContent = readFile();
     const {nome, endereco, cep, data_nascimento, telefone} = req.body;
     // Gera o id aleatório para a pessoa
@@ -42,22 +55,22 @@ router.post('/', function(req, res){
     // Adiciona no array para ser adicionado no arquivo json
     currentContent.push({cliente_id, nome, endereco, cep, data_nascimento, telefone});
     writeFile(currentContent);
-    res.send(currentContent);
+    const content = readFile();
+    // Começo de testes com o modulo ejs
+    res.render('./index',{ lista : content });
 });
 
-// Rota de exclusão
-router.delete('/:cliente_id', function(req, res){
+// Rota de busca de id especifico
+router.get('/:cliente_id', function(req, res){
     const {cliente_id} = req.params;
+    //res.send(cliente_id);
     const currentContent = readFile();
     // Busca elemento com a id especifica
-    const selectedItem = currentContent.findIndex((item) => item.cliente_id === cliente_id);
-    // Remove do array o item com a id
-    currentContent.splice(selectedItem, 1);
-    writeFile(currentContent);
-    res.send(true);
+    const selectedItem = currentContent.find((item) => item.cliente_id === cliente_id);
+    res.render('./edit',{ contato : selectedItem});
 });
 
-// Rota de update
+// Edita o contato selecionado
 router.put('/:cliente_id', function(req, res){
     const {cliente_id} = req.params;
     const {nome, endereco, cep, data_nascimento, telefone} = req.body;
@@ -77,7 +90,23 @@ router.put('/:cliente_id', function(req, res){
 
     currentContent[selectedItem] = newContato;
     writeFile(currentContent);
-    res.send(newContato);
+    const content = readFile();
+    // Começo de testes com o modulo ejs
+    res.render('./index',{ lista : content });
+});
+
+// Exclui o contato selecionado
+router.delete('/:cliente_id', function(req, res){
+    const {cliente_id} = req.params;
+    const currentContent = readFile();
+    // Busca elemento com a id especifica
+    const selectedItem = currentContent.findIndex((item) => item.cliente_id === cliente_id);
+    // Remove do array o item com a id
+    currentContent.splice(selectedItem, 1);
+    writeFile(currentContent);
+    // Le novamente o arquivo
+    const content = readFile();
+    res.render('./index',{ lista : content });
 });
 
 // Inicializa o servidor

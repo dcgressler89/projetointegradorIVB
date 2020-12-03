@@ -61,7 +61,7 @@ router.post('/adicionar', function(req, res){
 });
 
 // Rota de busca de id especifico
-router.get('/:cliente_id', function(req, res){
+router.get('/edit/:cliente_id', function(req, res){
     const {cliente_id} = req.params;
     //res.send(cliente_id);
     const currentContent = readFile();
